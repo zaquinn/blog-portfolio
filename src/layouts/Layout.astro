@@ -1,26 +1,6 @@
 ---
-import Star from "../components/Star.astro";
-
 type Props = {
   title: string;
-};
-
-type KeyNumberStrVal = { [key: number]: string };
-
-const getRandomInteger = (min: number, max: number) => {
-  const minCeiled = Math.ceil(min);
-  const maxFloored = Math.floor(max);
-  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
-};
-
-const colors: KeyNumberStrVal = {
-  1: "white",
-  2: "red",
-  3: "blue",
-};
-
-const generateRandomStars = () => {
-  return Array.from({ length: 9 }, (_, index) => index + 1);
 };
 
 const { title } = Astro.props;
@@ -37,15 +17,6 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="body">
-    {
-      generateRandomStars().map((_) => (
-        <Star
-          color={`${colors[getRandomInteger(1, 4)]}`}
-          top={`${getRandomInteger(100, 1000)}px`}
-          left={`${getRandomInteger(100, 1000)}px`}
-        />
-      ))
-    }
     <slot />
   </body>
 </html>
@@ -55,6 +26,5 @@ const { title } = Astro.props;
   .body {
     height: 100vh;
     background: $body-gradient;
-    overflow: hidden;
   }
 </style>

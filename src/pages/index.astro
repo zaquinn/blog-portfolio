@@ -8,39 +8,22 @@ import Layout from "../layouts/Layout.astro";
       <!-- <div class="box-animated-border">
         <p>Conic gradient</p>
       </div> -->
+      <h1>Oi, eu sou o Isaac</h1>
     </div>
   </main>
 </Layout>
 
 <style lang="scss">
-  @property --angle {
-    syntax: "<angle>";
-    initial-value: 90deg;
-    inherits: true;
+  @use "src/styles";
+  h1 {
+    color: red;
   }
-
   .box-animated-border {
     width: 300px;
     height: 100px;
     background-color: black;
     color: white;
     border: 1px solid;
-    border-image: conic-gradient(
-        from var(--angle),
-        rgba(168, 239, 255, 0.1),
-        gray 0.15turn,
-        white 0.25turn,
-        white 0.35turn,
-        gray 0.65turn,
-        rgba(168, 239, 255, 0.1) 0.75turn
-      )
-      30;
-    animation: borderRotate 2500ms linear infinite forwards;
-  }
-
-  @keyframes borderRotate {
-    100% {
-      --angle: 420deg;
-    }
+    @include styles.animated-border;
   }
 </style>
