@@ -2,23 +2,42 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Isaac Xavier">
   <main>
-    <div class="flex items-center justify-center">
+    <div class="flex-center h-100 w-100">
       <!-- <div class="box-animated-border">
         <p>Conic gradient</p>
       </div> -->
-      <h1>Oi, eu sou o Isaac</h1>
+      <div class="flex-col mb-40">
+        <h1 class="title">ISAAC XAVIER</h1>
+        <h2 class="subtitle">DESENVOLVEDOR FULL STACK</h2>
+      </div>
     </div>
   </main>
 </Layout>
 
 <style lang="scss">
   @use "src/styles";
-  h1 {
-    color: red;
+
+  @include styles.flex-center;
+  @include styles.flex-col;
+  @include styles.h-100;
+  @include styles.w-100;
+  @include styles.generate-margin-bottom-class(40);
+
+  .title {
+    font-size: 85px;
+    @include styles.title-gradient;
+  }
+
+  .subtitle {
+    color: styles.$white;
+    font-size: 30px;
+    text-align: center;
   }
   .box-animated-border {
+    margin-top: 100px;
+    margin-left: 300px;
     width: 300px;
     height: 100px;
     background-color: black;

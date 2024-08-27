@@ -1,3 +1,5 @@
+@use "colors";
+
 @property --angle {
   syntax: "<angle>";
   initial-value: 90deg;
@@ -7,12 +9,12 @@
 @mixin animated-border {
   border-image: conic-gradient(
       from var(--angle),
-      rgba(168, 239, 255, 0.1),
-      gray 0.15turn,
-      white 0.25turn,
-      white 0.35turn,
-      gray 0.65turn,
-      rgba(168, 239, 255, 0.1) 0.75turn
+      transparent,
+      colors.$lightred 0.15turn,
+      colors.$lightred 0.25turn,
+      colors.$lightred 0.35turn,
+      colors.$lightred 0.65turn,
+      transparent 0.75turn
     )
     30;
   animation: borderRotate 2500ms linear infinite forwards;

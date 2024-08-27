@@ -1,5 +1,100 @@
 @use "colors";
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Michroma", system-ui;
+}
+
+@property --radial-percentage-1 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: -20%;
+}
+
+@property --radial-percentage-2 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 125%;
+}
+
+@property --radial-bg-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #87f5fb;
+}
+
+@property --radial-bg-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #de3c4b;
+}
+
 body {
-  background-color: colors.$gray-950;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Montserrat", system-ui;
+  transition: --radial-bg-1 0.5s;
+  background: radial-gradient(
+      circle at 50% var(--radial-percentage-1),
+      var(--radial-bg-1) -50%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% var(--radial-percentage-2),
+      var(--radial-bg-2) -50%,
+      transparent 35%
+    );
+  background-color: colors.$black;
+  animation: scale-and-change-color 2s ease-in-out infinite alternate;
+
+  @keyframes scale-and-change-color {
+    from {
+      --radial-percentage-1: -20%;
+      --radial-percentage-2: 125%;
+      --radial-bg-1: #de3c4b;
+      --radial-bg-2: #87f5fb;
+    }
+    to {
+      --radial-percentage-1: -15%;
+      --radial-percentage-2: 120%;
+      --radial-bg-1: #87f5fb;
+      --radial-bg-2: #de3c4b;
+    }
+  }
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin title-gradient {
+  background: -webkit-linear-gradient(
+    right,
+    colors.$lightred 0%,
+    colors.$cyan 100%
+  );
+  background: linear-gradient(to right, colors.$lightred 0%, colors.$cyan 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@mixin flex-center {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@mixin flex-col {
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+  }
 }

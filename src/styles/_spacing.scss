@@ -1,0 +1,95 @@
+@mixin h-100 {
+  .h-100 {
+    height: 100%;
+  }
+}
+
+@mixin w-100 {
+  .w-100 {
+    width: 100%;
+  }
+}
+
+@mixin generate-padding-class($value) {
+  .p-#{$value} {
+    padding: $value * 0.25rem;
+  }
+}
+
+@mixin generate-padding-top-class($value) {
+  .pt-#{$value} {
+    padding-top: $value * 0.25rem;
+  }
+}
+
+@mixin generate-padding-bottom-class($value) {
+  .pb-#{$value} {
+    padding-bottom: $value * 0.25rem;
+  }
+}
+
+@mixin generate-padding-left-class($value) {
+  .pl-#{$value} {
+    padding-left: $value * 0.25rem;
+  }
+}
+
+@mixin generate-padding-right-class($value) {
+  .pr-#{$value} {
+    padding-right: $value * 0.25rem;
+  }
+}
+
+@mixin generate-padding-x-class($value) {
+  .px-#{$value} {
+    padding: 0 $value * 0.25rem;
+  }
+}
+
+@mixin generate-padding-y-class($value) {
+  .py-#{$value} {
+    padding: $value * 0.25rem 0;
+  }
+}
+
+@mixin generate-margin-class($value) {
+  .m-#{$value} {
+    margin: $value * 0.25rem;
+  }
+}
+
+@mixin generate-margin-top-class($value) {
+  .mt-#{$value} {
+    margin-top: $value * 0.25rem;
+  }
+}
+
+@mixin generate-margin-bottom-class($value) {
+  .mb-#{$value} {
+    margin-bottom: $value * 0.25rem;
+  }
+}
+
+@mixin generate-margin-left-class($value) {
+  .ml-#{$value} {
+    margin-left: $value * 0.25rem;
+  }
+}
+
+@mixin generate-margin-right-class($value) {
+  .mr-#{$value} {
+    margin-right: $value * 0.25rem;
+  }
+}
+
+@mixin generate-margin-x-class($value) {
+  .mx-#{$value} {
+    margin: 0 $value * 0.25rem;
+  }
+}
+
+@mixin generate-margin-y-class($value) {
+  .my-#{$value} {
+    margin: $value * 0.25rem 0;
+  }
+}
