@@ -1,48 +1,42 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout title="Isaac Xavier">
-  <main>
-    <div class="flex-center h-100 w-100">
-      <!-- <div class="box-animated-border">
-        <p>Conic gradient</p>
-      </div> -->
-      <div class="flex-col mb-40">
-        <h1 class="title">ISAAC XAVIER</h1>
-        <h2 class="subtitle">DESENVOLVEDOR FULL STACK</h2>
-      </div>
+<BaseLayout title="Isaac Xavier" activePage="">
+  <div class="flex-center h-100 w-100">
+    <div class="flex-col-center mb-40">
+      <h1>ISAAC XAVIER</h1>
+      <h2>DESENVOLVEDOR FULL STACK</h2>
     </div>
-  </main>
-</Layout>
+  </div>
+</BaseLayout>
 
 <style lang="scss">
   @use "src/styles";
 
   @include styles.flex-center;
-  @include styles.flex-col;
+  @include styles.flex-col-center;
   @include styles.h-100;
   @include styles.w-100;
   @include styles.generate-margin-bottom-class(40);
 
-  .title {
+  h1 {
     font-size: 85px;
+    text-align: center;
     @include styles.title-gradient;
+
+    @include styles.for-phone-only {
+      font-size: 30px;
+    }
   }
 
-  .subtitle {
+  h2 {
     color: styles.$white;
     font-size: 30px;
     text-align: center;
-  }
-  .box-animated-border {
-    margin-top: 100px;
-    margin-left: 300px;
-    width: 300px;
-    height: 100px;
-    background-color: black;
-    color: white;
-    border: 1px solid;
-    @include styles.animated-border;
+
+    @include styles.for-phone-only {
+      font-size: 15px;
+    }
   }
 </style>

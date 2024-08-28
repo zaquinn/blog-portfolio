@@ -1,0 +1,45 @@
+---
+import LanguageSelector from "./LanguageSelector/LanguageSelector";
+import Navigation from "./Navigation.astro";
+type Props = {
+  activePage: string;
+};
+
+const { activePage } = Astro.props;
+---
+
+<header>
+  <div class="top-header">
+    <nav class="mt-1 ml-3 mr-3">
+      <a href="/">ISX</a>
+    </nav>
+    <LanguageSelector client:load />
+  </div>
+  <nav>
+    <Navigation activePage={activePage} />
+  </nav>
+</header>
+
+<style lang="scss">
+  @use "src/styles";
+  @include styles.generate-margin-top-class(1);
+  @include styles.generate-margin-left-class(3);
+  @include styles.generate-margin-right-class(3);
+
+  .top-header {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  a {
+    font-size: 35px;
+    font-family: "Michroma", system-ui;
+    @include styles.title-gradient;
+
+    @include styles.for-phone-only {
+      font-size: 25px;
+    }
+  }
+</style>

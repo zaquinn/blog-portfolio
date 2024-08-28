@@ -1,0 +1,88 @@
+---
+type Props = {
+  activePage: string;
+};
+const { activePage } = Astro.props;
+const routes = [
+  {
+    route: "/projects",
+    label: "Projetos",
+  },
+  {
+    route: "/contact",
+    label: "Contato",
+  },
+  {
+    route: "/about",
+    label: "Sobre mim",
+  },
+  {
+    route: "/blog",
+    label: "Blog",
+  },
+];
+---
+
+<div class="navigation">
+  {
+    routes.map((route) => (
+      <a
+        class={`navigation-link ${activePage === route.label ? "navigation-link-active" : ""}`}
+        href={route.route}
+      >
+        {route.label}
+      </a>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  @use "src/styles";
+
+  .navigation {
+    display: flex;
+    background-color: styles.$gray-950;
+    border: 1px solid styles.$gray-600;
+    border-radius: 10px;
+    height: 60px;
+    width: max-content;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 90vw;
+    overflow-x: auto;
+  }
+
+  .navigation-link,
+  .navigation-link-active {
+    color: styles.$gray-100;
+    display: flex;
+    align-items: center;
+    padding: 20px 35px;
+    font-weight: 400;
+    font-size: 16px;
+
+    &:first-child {
+      border-radius: 10px 0px 0px 10px;
+    }
+
+    &:last-child {
+      border-radius: 0px 10px 10px 0px;
+    }
+
+    &:hover {
+      background-color: styles.$gray-700;
+    }
+  }
+
+  .navigation-link-active {
+    background-color: styles.$lightred;
+    font-weight: 500;
+    color: styles.$cyan;
+
+    &:hover {
+      background-color: styles.$lightred;
+    }
+  }
+</style>

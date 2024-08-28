@@ -1,0 +1,17 @@
+@use "src/styles";
+
+@include styles.flex-center;
+@include styles.generate-padding-x-class(1);
+@include styles.generate-padding-y-class(1);
+@include styles.generate-margin-top-class(3);
+@include styles.generate-margin-right-class(3);
+
+.language-selector {
+  border: 1px solid styles.$gray-600;
+  border-radius: 5px;
+  background-color: styles.$gray-950;
+  color: styles.$gray-100;
+  font-size: 15px;
+  width: 80px;
+  height: 30px;
+}

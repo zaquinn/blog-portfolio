@@ -42,13 +42,15 @@
 
 @mixin generate-padding-x-class($value) {
   .px-#{$value} {
-    padding: 0 $value * 0.25rem;
+    padding-left: $value * 0.25rem;
+    padding-right: $value * 0.25rem;
   }
 }
 
 @mixin generate-padding-y-class($value) {
   .py-#{$value} {
-    padding: $value * 0.25rem 0;
+    padding-top: $value * 0.25rem;
+    padding-bottom: $value * 0.25rem;
   }
 }
 
@@ -84,12 +86,14 @@
 
 @mixin generate-margin-x-class($value) {
   .mx-#{$value} {
-    margin: 0 $value * 0.25rem;
+    margin-left: $value * 0.25rem;
+    margin-right: $value * 0.25rem;
   }
 }
 
 @mixin generate-margin-y-class($value) {
   .my-#{$value} {
-    margin: $value * 0.25rem 0;
+    margin-top: $value * 0.25rem;
+    margin-bottom: $value * 0.25rem;
   }
 }

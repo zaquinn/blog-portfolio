@@ -98,3 +98,12 @@ main {
     flex-direction: column;
   }
 }
+
+@mixin flex-col-center {
+  .flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
