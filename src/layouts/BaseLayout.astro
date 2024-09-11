@@ -4,10 +4,9 @@ import Header from "../components/Header.astro";
 
 type Props = {
   title: string;
-  activePage: string;
 };
 
-const { title, activePage } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,7 +21,7 @@ const { title, activePage } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <Header activePage={activePage} />
+    <Header />
     <main>
       <slot />
     </main>

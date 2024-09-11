@@ -1,0 +1,88 @@
+@use "src/styles";
+
+.navigation {
+  display: flex;
+  background-color: styles.$gray-950;
+  border: 1px solid styles.$gray-600;
+  border-radius: 10px;
+  height: 70px;
+  width: 80%;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 600px;
+  overflow-x: auto;
+  justify-content: space-between;
+
+  @include styles.for-phone-only {
+    width: 100%;
+    bottom: 0px;
+    max-width: none;
+    height: 75px;
+    border-radius: 0;
+  }
+}
+
+.navigation-link,
+.navigation-link-active {
+  color: styles.$gray-100;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0px;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+
+  > svg {
+    font-size: 25px;
+  }
+
+  @include styles.for-phone-only {
+    font-size: 10px;
+
+    > svg {
+      font-size: 35px;
+    }
+  }
+
+  &:first-child {
+    border-radius: 10px 0px 0px 10px;
+    @include styles.for-phone-only {
+      border-radius: 0;
+    }
+  }
+
+  &:last-child {
+    border-radius: 0px 10px 10px 0px;
+    @include styles.for-phone-only {
+      border-radius: 0;
+    }
+  }
+
+  &:hover {
+    background-color: styles.$gray-700;
+  }
+}
+
+.navigation-link-active {
+  background-color: styles.$lightred;
+  font-weight: 500;
+  color: styles.$cyan;
+
+  @include styles.for-phone-only {
+    background-color: transparent;
+    > svg {
+      color: styles.$lightred;
+    }
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &:hover {
+    background-color: styles.$lightred;
+  }
+}

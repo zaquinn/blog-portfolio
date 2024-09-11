@@ -1,11 +1,6 @@
 ---
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
-import Navigation from "./Navigation.astro";
-type Props = {
-  activePage: string;
-};
-
-const { activePage } = Astro.props;
+import Navigation from "./Navigation/Navigation";
 ---
 
 <header>
@@ -16,7 +11,7 @@ const { activePage } = Astro.props;
     <LanguageSelector client:load />
   </div>
   <nav>
-    <Navigation activePage={activePage} />
+    <Navigation client:only="react" />
   </nav>
 </header>
 

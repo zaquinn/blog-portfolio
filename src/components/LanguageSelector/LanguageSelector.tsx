@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.scss";
 
-function LanguageSelector() {
+export default function LanguageSelector() {
   const [language, setLanguage] = useState("pt/BR");
 
   const toggle = () =>
@@ -18,5 +18,3 @@ function LanguageSelector() {
     </button>
   );
 }
-
-export default LanguageSelector;
