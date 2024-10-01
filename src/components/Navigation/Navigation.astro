@@ -81,7 +81,7 @@ const activePage = (route: string): boolean => pathname.includes(route);
 
     @include styles.for-phone-only {
       width: 100%;
-      bottom: 0px;
+      bottom: 31px;
       max-width: none;
       height: 75px;
       border-radius: 0;
@@ -175,6 +175,16 @@ const activePage = (route: string): boolean => pathname.includes(route);
       padding: 0px 5px 0px 5px;
       text-decoration: underline;
       color: styles.$gray-100 !important;
+    }
+
+    @include styles.for-phone-only {
+      bottom: 0px;
+      width: 100%;
+      border-radius: 0px;
+
+      > span {
+        display: none;
+      }
     }
   }
 </style>
