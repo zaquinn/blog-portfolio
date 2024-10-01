@@ -42,10 +42,22 @@ const activePage = (route: string): boolean => pathname.includes(route);
   </div>
   <div class="contact">
     <span>Contato</span>
-    <a>LinkedIn</a>
-    <a>Curriculum Vitae</a>
-    <a>Email</a>
-    <a>GitHub</a>
+    <a
+      href="https://www.linkedin.com/in/isaac-xavier-dev/"
+      target="_blank"
+      rel="noopener noreferrer">LinkedIn</a
+    >
+    <a href="/isaac-xavier.pdf" download>Curriculum Vitae</a>
+    <a
+      href="mailto:ayzick120@gmail.com?subject=Ola%20Isaac"
+      target="_blank"
+      rel="noopener noreferrer">Email</a
+    >
+    <a
+      href="https://github.com/zaquinn"
+      target="_blank"
+      rel="noopener noreferrer">GitHub</a
+    >
   </div>
 </>
 
@@ -63,7 +75,7 @@ const activePage = (route: string): boolean => pathname.includes(route);
     bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 500px;
+    width: 500px;
     overflow-x: auto;
     justify-content: space-between;
 
@@ -143,14 +155,26 @@ const activePage = (route: string): boolean => pathname.includes(route);
     display: flex;
     justify-content: space-around;
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 500px;
+    width: 500px;
+    font-size: 14px;
+    padding: 6px 0px 6px 0px;
+    border-radius: 6px;
+    background-color: styles.$gray-950;
+    border: 1px solid styles.$gray-600;
+
     > span {
+      padding-right: 10px;
+      border-right: 2px solid styles.$gray-600;
+      color: styles.$gray-100 !important;
     }
 
     > a {
+      padding: 0px 5px 0px 5px;
+      text-decoration: underline;
+      color: styles.$gray-100 !important;
     }
   }
 </style>
