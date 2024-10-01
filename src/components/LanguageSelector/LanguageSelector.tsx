@@ -6,7 +6,7 @@ export default function LanguageSelector() {
 
   const toggle = () =>
     setLanguage((currentLanguage) =>
-      currentLanguage === "pt/BR" ? "en/US" : "pt/BR"
+      currentLanguage === "pt/BR" ? "en/US" : "pt/BR",
     );
 
   return (

@@ -1,7 +1,6 @@
 ---
 import { BsFillGridFill } from "react-icons/bs";
 import { FaBlog } from "react-icons/fa";
-import { IoIosMail } from "react-icons/io";
 import { RiProfileFill } from "react-icons/ri";
 
 const routes = [
@@ -9,11 +8,6 @@ const routes = [
     route: "/projects",
     label: "Projetos",
     icon: BsFillGridFill,
-  },
-  {
-    route: "/contact",
-    label: "Contato",
-    icon: IoIosMail,
   },
   {
     route: "/about",
@@ -32,19 +26,28 @@ const { pathname } = Astro.url;
 const activePage = (route: string): boolean => pathname.includes(route);
 ---
 
-<div class="navigation">
-  {
-    routes.map((route) => (
-      <a
-        class={`navigation-link ${activePage(route.route) ? "navigation-link-active" : ""}`}
-        href={route.route}
-      >
-        <route.icon />
-        <span>{route.label}</span>
-      </a>
-    ))
-  }
-</div>
+<>
+  <div class="navigation">
+    {
+      routes.map((route) => (
+        <a
+          class={`navigation-link ${activePage(route.route) ? "navigation-link-active" : ""}`}
+          href={route.route}
+        >
+          <route.icon />
+          <span>{route.label}</span>
+        </a>
+      ))
+    }
+  </div>
+  <div class="contact">
+    <span>Contato</span>
+    <a>LinkedIn</a>
+    <a>Curriculum Vitae</a>
+    <a>Email</a>
+    <a>GitHub</a>
+  </div>
+</>
 
 <style lang="scss">
   @use "src/styles";
@@ -57,10 +60,10 @@ const activePage = (route: string): boolean => pathname.includes(route);
     height: 70px;
     width: 80%;
     position: fixed;
-    bottom: 20px;
+    bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 600px;
+    max-width: 500px;
     overflow-x: auto;
     justify-content: space-between;
 
@@ -133,6 +136,21 @@ const activePage = (route: string): boolean => pathname.includes(route);
 
     &:hover {
       background-color: styles.$lightred;
+    }
+  }
+
+  .contact {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    > span {
+    }
+
+    > a {
     }
   }
 </style>
