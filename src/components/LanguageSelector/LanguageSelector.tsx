@@ -10,11 +10,13 @@ export default function LanguageSelector() {
     );
 
   return (
-    <button
-      className="flex-center language-selector px-1 py-1 mt-3 mr-3"
-      onClick={toggle}
-    >
-      {language.toUpperCase()}
-    </button>
+    <>
+      <button
+        className="flex-center language-selector px-1 py-1 mt-3 mr-3"
+        onClick={toggle}
+      >
+        {language.toUpperCase()}
+      </button>
+    </>
   );
 }
