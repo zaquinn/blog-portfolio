@@ -47,6 +47,13 @@
   }
 }
 
+@mixin generate-padding-x-percent-class($value) {
+  .px-percent-#{$value} {
+    padding-left: $value * 1%;
+    padding-right: $value * 1%;
+  }
+}
+
 @mixin generate-padding-y-class($value) {
   .py-#{$value} {
     padding-top: $value * 0.25rem;

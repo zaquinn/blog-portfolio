@@ -1,7 +1,169 @@
 ---
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const teste = Array.from(new Array(30), (_, i) => i);
+
+const teste2 = Array.from(new Array(2), (_, i) => i);
 ---
 
 <BaseLayout title="Isaac Xavier | Projetos">
-  <div>Projetos aqui</div>
+  <div class="flex-col-center pt-22 px-percent-10">
+    <h2>Meus Projetos</h2>
+    <div class="flex-col w-100 pt-8">
+      <h3>Tags</h3>
+      <div class="tags-container pt-5">
+        {teste.map((_) => <a class="tag">Python</a>)}
+      </div>
+      <div class="projects-container pt-22">
+        {
+          teste2.map((_) => (
+            <div class="project-container">
+              <h4 class="font-18 px-3 py-4">Ecommerce com microsserviços</h4>
+              <p class="font-16 font-w-300 px-3">
+                Demonstração da arquitetura de microsserviçosusando Python,
+                FastAPI e RabbitMQ. A aplicação inteira está dockerizada.
+              </p>
+              <p class="font-14 px-3 pt-8 pb-4">Repositório:</p>
+              <div class="px-3 py-4">
+                <p class="font-14">Tags:</p>
+                <a class="tag">Python</a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="flex-center pt-5">
+        <div class="projects-paginator-container px-2">
+          <a><IoIosArrowBack /></a>
+          <a>1</a>
+          <a>2</a>
+          <a>3</a>
+          <a>...</a>
+          <a>9</a>
+          <a><IoIosArrowForward /></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </BaseLayout>
+
+<style lang="scss">
+  @use "src/styles";
+
+  @include styles.generate-padding-top-class(22);
+  @include styles.generate-padding-top-class(8);
+  @include styles.generate-padding-top-class(5);
+  @include styles.generate-padding-x-percent-class(10);
+  @include styles.generate-padding-x-class(3);
+  @include styles.generate-padding-x-class(2);
+  @include styles.generate-padding-y-class(4);
+  @include styles.generate-padding-bottom-class(4);
+  @include styles.flex-col-center;
+  @include styles.flex-center;
+  @include styles.flex-col;
+  @include styles.w-100;
+  @include styles.font(18);
+  @include styles.font(16);
+  @include styles.font(14);
+  @include styles.font-w(300);
+  h2,
+  h3 {
+    color: styles.$white;
+    font-size: 35px;
+    width: max-content;
+  }
+  h3 {
+    font-size: 22px;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tag {
+    font-family: "Montserrat", system-ui;
+    font-size: 12px;
+    font-weight: 400;
+    color: styles.$white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    border: 1px solid transparent;
+    background-color: styles.$gray-950;
+    width: max-content;
+    padding: 0px 10px 0px 10px;
+    cursor: pointer;
+    background:
+      linear-gradient(styles.$gray-950, styles.$gray-950) padding-box,
+      linear-gradient(to right, styles.$lightred 0%, styles.$cyan 100%)
+        border-box;
+    border-image-slice: 1;
+    border-radius: 6px;
+  }
+
+  .projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    @include styles.for-desktop-up {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .project-container {
+    color: styles.$white;
+    background-color: styles.$gray-950;
+    border: 1px solid styles.$gray-600;
+    border-radius: 6px;
+    width: 100%;
+
+    > div {
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid styles.$gray-600;
+    }
+
+    > div > p {
+      font-family: "Michroma", system-ui;
+    }
+  }
+
+  .projects-paginator-container {
+    display: flex;
+    align-items: center;
+    background-color: styles.$gray-950;
+    color: styles.$gray-100;
+    border: 1px solid styles.$gray-600;
+    border-radius: 6px;
+    height: 35px;
+    font-size: 14px;
+    gap: 5px;
+
+    :first-child {
+      display: flex;
+      align-items: center;
+      margin-right: 3px;
+      > svg {
+        color: styles.$cyan;
+      }
+    }
+
+    :last-child {
+      display: flex;
+      align-items: center;
+      margin-left: 3px;
+
+      > svg {
+        color: styles.$lightred;
+      }
+    }
+    > a {
+      cursor: pointer;
+    }
+  }
+</style>

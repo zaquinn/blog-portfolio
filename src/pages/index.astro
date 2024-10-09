@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Isaac Xavier">
-  <div class="flex-center h-100 w-100">
+  <div class="home-container h-100 w-100">
     <div class="flex-col-center mb-40">
       <h1>ISAAC XAVIER</h1>
       <h2>DESENVOLVEDOR FULL STACK</h2>
@@ -14,11 +14,18 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <style lang="scss">
   @use "src/styles";
 
-  @include styles.flex-center;
   @include styles.flex-col-center;
   @include styles.h-100;
   @include styles.w-100;
   @include styles.generate-margin-bottom-class(40);
+
+  .home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: inherit;
+  }
 
   h1 {
     font-size: 85px;
