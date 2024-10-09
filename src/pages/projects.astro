@@ -13,12 +13,17 @@ const teste2 = Array.from(new Array(2), (_, i) => i);
     <div class="flex-col w-100 pt-8">
       <h3>Tags</h3>
       <div class="tags-container pt-5">
-        {teste.map((_) => <a class="tag">Python</a>)}
+        {
+          teste.map((_) => (
+            <a class="tag">Python{typeof _ === "number" ? "" : _}</a>
+          ))
+        }
       </div>
       <div class="projects-container pt-22">
         {
           teste2.map((_) => (
             <div class="project-container">
+              {typeof _ === "number" ? "" : _}
               <h4 class="font-18 px-3 py-4">Ecommerce com microsserviços</h4>
               <p class="font-16 font-w-300 px-3">
                 Demonstração da arquitetura de microsserviçosusando Python,
