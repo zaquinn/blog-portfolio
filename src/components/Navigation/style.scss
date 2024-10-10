@@ -8,16 +8,16 @@
   height: 70px;
   width: 80%;
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 600px;
+  width: 500px;
   overflow-x: auto;
   justify-content: space-between;
 
   @include styles.for-phone-only {
     width: 100%;
-    bottom: 0px;
+    bottom: 31px;
     max-width: none;
     height: 75px;
     border-radius: 0;
@@ -84,5 +84,42 @@
 
   &:hover {
     background-color: styles.$lightred;
+  }
+}
+
+.contact {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  font-size: 14px;
+  padding: 6px 0px 6px 0px;
+  border-radius: 6px;
+  background-color: styles.$gray-950;
+  border: 1px solid styles.$gray-600;
+
+  > span {
+    padding-right: 10px;
+    border-right: 2px solid styles.$gray-600;
+    color: styles.$gray-100 !important;
+  }
+
+  > a {
+    padding: 0px 5px 0px 5px;
+    text-decoration: underline;
+    color: styles.$gray-100 !important;
+  }
+
+  @include styles.for-phone-only {
+    bottom: 0px;
+    width: 100%;
+    border-radius: 0px;
+
+    > span {
+      display: none;
+    }
   }
 }

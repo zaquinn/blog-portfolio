@@ -1,6 +1,6 @@
 ---
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
-import Navigation from "./Navigation/Navigation.astro";
+import Navigation from "./Navigation/Navigation.tsx";
 ---
 
 <header>
@@ -11,7 +11,7 @@ import Navigation from "./Navigation/Navigation.astro";
     <LanguageSelector client:load />
   </div>
   <nav>
-    <Navigation />
+    <Navigation client:only="react" />
   </nav>
 </header>
 
