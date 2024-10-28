@@ -85,6 +85,12 @@ main {
   background-clip: text;
 }
 
+@mixin flex {
+  .flex {
+    display: flex;
+  }
+}
+
 @mixin flex-center {
   .flex-center {
     display: flex;

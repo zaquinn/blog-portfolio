@@ -8,7 +8,7 @@ const teste2 = Array.from(new Array(2), (_, i) => i);
 ---
 
 <BaseLayout title="Isaac Xavier | Projetos">
-  <div class="flex-col-center pt-22 px-percent-10">
+  <div class="flex-col-center pt-24 px-8">
     <h2>Meus Projetos</h2>
     <div class="flex-col w-100 pt-8">
       <h3>Tags</h3>
@@ -19,7 +19,7 @@ const teste2 = Array.from(new Array(2), (_, i) => i);
           ))
         }
       </div>
-      <div class="projects-container pt-22">
+      <div class="projects-container pt-24">
         {
           teste2.map((_) => (
             <div class="project-container">
@@ -56,11 +56,11 @@ const teste2 = Array.from(new Array(2), (_, i) => i);
 <style lang="scss">
   @use "src/styles";
 
-  @include styles.generate-padding-top-class(22);
+  @include styles.generate-padding-top-class(24);
   @include styles.generate-padding-top-class(8);
   @include styles.generate-padding-top-class(5);
-  @include styles.generate-padding-x-percent-class(10);
   @include styles.generate-padding-x-class(3);
+  @include styles.generate-padding-x-class(8);
   @include styles.generate-padding-x-class(2);
   @include styles.generate-padding-y-class(4);
   @include styles.generate-padding-bottom-class(4);
@@ -76,7 +76,6 @@ const teste2 = Array.from(new Array(2), (_, i) => i);
   h3 {
     color: styles.$white;
     font-size: 35px;
-    width: max-content;
   }
   h3 {
     font-size: 22px;

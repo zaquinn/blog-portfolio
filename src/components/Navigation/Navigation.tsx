@@ -27,19 +27,17 @@ export default function Navigation() {
   const activePage = (route: string) => pathname.includes(route);
 
   return (
-    <>
-      <div className="navigation">
-        {routes.map((route) => (
-          <a
-            key={route.route}
-            className={`navigation-link ${activePage(route.route) ? "navigation-link-active" : ""}`}
-            href={route.route}
-          >
-            <route.icon />
-            <span>{route.label}</span>
-          </a>
-        ))}
-      </div>
+    <div className="navigation">
+      {routes.map((route) => (
+        <a
+          key={route.route}
+          className={`navigation-link ${activePage(route.route) ? "navigation-link-active" : ""}`}
+          href={route.route}
+        >
+          <route.icon />
+          <span>{route.label}</span>
+        </a>
+      ))}
       <div className="contact">
         <span>Contato</span>
         <a
@@ -50,7 +48,7 @@ export default function Navigation() {
           LinkedIn
         </a>
         <a href="/isaac-xavier.pdf" download>
-          Curriculum Vitae
+          CV
         </a>
         <a
           href="mailto:ayzick120@gmail.com?subject=Ola%20Isaac"
@@ -67,6 +65,6 @@ export default function Navigation() {
           GitHub
         </a>
       </div>
-    </>
+    </div>
   );
 }

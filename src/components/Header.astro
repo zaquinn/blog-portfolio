@@ -1,13 +1,20 @@
 ---
+import { IoMenu } from "react-icons/io5";
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
 import Navigation from "./Navigation/Navigation.tsx";
 ---
 
 <header>
   <div class="top-header">
-    <nav class="mt-1 ml-3 mr-3">
-      <a href="/">ISX</a>
-    </nav>
+    <div class="flex">
+      <button class="navigation-menu-button">
+        <IoMenu />
+        <span>Menu</span>
+      </button>
+      <nav class="ml-2 mr-3">
+        <a href="/">ISX</a>
+      </nav>
+    </div>
     <LanguageSelector client:load />
   </div>
   <nav>
@@ -18,8 +25,9 @@ import Navigation from "./Navigation/Navigation.tsx";
 <style lang="scss">
   @use "src/styles";
   @include styles.generate-margin-top-class(1);
-  @include styles.generate-margin-left-class(3);
+  @include styles.generate-margin-left-class(2);
   @include styles.generate-margin-right-class(3);
+  @include styles.flex();
 
   .top-header {
     position: fixed;
@@ -27,14 +35,51 @@ import Navigation from "./Navigation/Navigation.tsx";
     width: 100%;
     display: flex;
     justify-content: space-between;
+    height: 60px;
+    backdrop-filter: blur(5px);
   }
   a {
-    font-size: 35px;
+    font-size: 40px;
     font-family: "Michroma", system-ui;
     @include styles.title-gradient;
+  }
+  .navigation-menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    backdrop-filter: blur(5px);
+    font-size: 30px;
+    border-radius: 8px;
+    color: styles.$gray-100;
+    cursor: pointer;
 
-    @include styles.for-phone-only {
-      font-size: 25px;
+    > span {
+      font-size: 12px;
+    }
+
+    &:hover {
+      background-color: styles.$gray-700;
     }
   }
 </style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    // @ts-expect-error: Object is possibly 'null'.
+    document
+      .querySelector(".navigation-menu-button")
+      .addEventListener("click", () => {
+        // @ts-expect-error: Object is possibly 'null'.
+        document
+          .querySelector(".navigation")
+          .classList.toggle("show-navigation-menu");
+      });
+  });
+</script>
