@@ -3,5 +3,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Isaac Xavier | 404">
-  <div>Nada para ver aqui champs</div>
+  <div class="flex-col-center pt-24 px-8">
+    <h2>Seja lá o que você estava procurando, não tá aqui ainda</h2>
+    <p>Experimente usar o menu para encontrar o que deseja</p>
+  </div>
 </BaseLayout>
+
+<style lang="scss">
+  @use "src/styles";
+
+  @include styles.generate-padding-top-class(24);
+  @include styles.flex-col-center;
+  @include styles.generate-padding-x-class(8);
+  h2,
+  p {
+    color: styles.$white;
+    font-size: 35px;
+  }
+  p {
+    font-size: 25px;
+    margin-top: 30px;
+  }
+</style>

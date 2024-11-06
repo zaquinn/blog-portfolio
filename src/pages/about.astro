@@ -3,5 +3,73 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Isaac Xavier | Sobre mim">
-  <div>Sobre mim aqui</div>
+  <div class="flex-col-center pt-24 px-8">
+    <h2>Sobre mim</h2>
+  </div>
+  <div class="flex-col-center w-100 pt-8">
+    <div class="flex-col about-me-container">
+      <p>
+        Olá! Meu nome é Isaac Xavier, sou brasileiro, natural de Brasília,
+        Distrito Federal, e tenho 25 anos. Sou casado e orgulhoso pai de dois
+        filhos.
+      </p>
+      <p>
+        Atualmente, estou cursando Ciência da Computação pela Universidade
+        Cruzeiro do Sul, estando na metade do curso. Tenho mais de três anos de
+        experiência como engenheiro de software full stack, com foco em Python e
+        JavaScript, e já participei de diversos projetos no desenvolvimento de
+        soluções completas para web.
+      </p>
+      <p>
+        No Frontend, utilizo majoritariamente Next.js e React, enquanto no
+        Backend tenho experiência com Django, Django Rest Framework, Django
+        Ninja, FastAPI e Express.js com Node.js. Essas tecnologias me permitem
+        construir sistemas escaláveis, performáticos e de fácil manutenção.
+      </p>
+      <p>
+        Sou apaixonado por aprender e estou sempre em busca de me especializar
+        ainda mais, tanto técnica quanto pessoalmente. Acredito que o
+        compartilhamento de conhecimento é fundamental, e gosto de ajudar tanto
+        meus colegas de equipe quanto aqueles que estão começando na área. Meu
+        objetivo é contribuir para a otimização de processos, rotinas e
+        sistemas, promovendo alta performance, disponibilidade e escalabilidade.
+      </p>
+      <p>
+        Nos meus momentos livres, gosto de programar e praticar jiu-jitsu, um
+        esporte que me ensina sobre disciplina e persistência, qualidades que
+        levo para a vida e para o trabalho.
+      </p>
+      <p>
+        Estou sempre em busca da minha melhor versão e comprometido com a
+        excelência em tudo o que faço.
+      </p>
+    </div>
+  </div>
 </BaseLayout>
+
+<style lang="scss">
+  @use "src/styles";
+
+  @include styles.generate-padding-top-class(24);
+  @include styles.generate-padding-top-class(8);
+  @include styles.flex-col-center;
+  @include styles.flex-col;
+  @include styles.generate-padding-x-class(8);
+  @include styles.w-100;
+  h2 {
+    color: styles.$white;
+    font-size: 35px;
+  }
+
+  .about-me-container {
+    background-color: styles.$gray-950;
+    color: styles.$white;
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid styles.$gray-600;
+    width: 60%;
+    padding: 22px;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+</style>
