@@ -1,0 +1,216 @@
+---
+import { BsFillGridFill } from "react-icons/bs";
+import { FaBlog } from "react-icons/fa";
+import { RiProfileFill } from "react-icons/ri";
+import { IoMenu } from "react-icons/io5";
+
+const routes = [
+  {
+    route: "/projects",
+    label: "Projetos",
+    icon: BsFillGridFill,
+  },
+  {
+    route: "/about",
+    label: "Sobre mim",
+    icon: RiProfileFill,
+  },
+  {
+    route: "/blog",
+    label: "Blog",
+    icon: FaBlog,
+  },
+];
+
+const pathname = Astro.url.password;
+
+const activePage = (route: string) => pathname.includes(route);
+---
+
+<>
+  <div class="navigation"></div>
+  <div class="navigation-fixed">
+    <button class="navigation-menu-button">
+      <IoMenu />
+      <span>Menu</span>
+    </button>
+    {
+      routes.map((route) => (
+        <a
+          class={`navigation-link ${activePage(route.route) ? "navigation-link-active" : ""}`}
+          href={route.route}
+        >
+          <route.icon />
+          <span>{route.label}</span>
+        </a>
+      ))
+    }
+    <div class="contact">
+      <span>Contato</span>
+      <a
+        href="https://www.linkedin.com/in/isaac-xavier-dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+      <a href="/isaac-xavier.pdf" download> CV </a>
+      <a
+        href="mailto:ayzick120@gmail.com?subject=Ola%20Isaac"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Email
+      </a>
+      <a
+        href="https://github.com/zaquinn"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+    </div>
+  </div>
+</>
+
+<style lang="scss">
+  @use "src/styles";
+
+  .navigation {
+    display: none;
+    backdrop-filter: blur(5px);
+    height: 100%;
+    width: 60px;
+  }
+
+  .navigation-fixed {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    width: 60px;
+    backdrop-filter: blur(5px);
+    height: 100%;
+    top: 0px;
+    left: 0px;
+  }
+
+  .navigation-menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    backdrop-filter: blur(5px);
+    font-size: 30px;
+    border-radius: 8px;
+    color: styles.$gray-100;
+    cursor: pointer;
+
+    > span {
+      font-size: 12px;
+    }
+
+    &:hover {
+      background-color: styles.$gray-700;
+    }
+  }
+
+  .show-navigation-menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navigation-link,
+  .navigation-link-active {
+    color: styles.$gray-100;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 10px 0px;
+    border-radius: 8px;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px 0px;
+
+    > span {
+      text-align: center;
+    }
+    > svg {
+      font-size: 25px;
+    }
+
+    @include styles.for-phone-only {
+      font-size: 10px;
+
+      > svg {
+        font-size: 35px;
+      }
+    }
+
+    &:hover {
+      background-color: styles.$gray-700;
+    }
+  }
+
+  .navigation-link-active {
+    background-color: styles.$lightred;
+    font-weight: 500;
+    color: styles.$cyan;
+
+    @include styles.for-phone-only {
+      background-color: transparent;
+      > svg {
+        color: styles.$lightred;
+      }
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &:hover {
+      background-color: styles.$lightred;
+    }
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    align-items: center;
+    width: 100%;
+    > span {
+      text-align: center;
+      border-bottom: 2px solid styles.$gray-600;
+      color: styles.$gray-100 !important;
+      padding: 10px 0px;
+    }
+
+    > a {
+      padding: 5px 0px;
+      text-align: center;
+      text-decoration: underline;
+      color: styles.$gray-100 !important;
+    }
+
+    @include styles.for-phone-only {
+      bottom: 0px;
+      width: 100%;
+      border-radius: 0px;
+
+      > span {
+        display: none;
+      }
+    }
+  }
+</style>
+
+<script>
+  import "../scripts/menu.js";
+</script>

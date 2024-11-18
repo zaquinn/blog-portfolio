@@ -3,9 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Isaac Xavier | 404">
-  <div class="flex-col-center pt-24 px-8">
-    <h2>Seja lá o que você estava procurando, não tá aqui ainda</h2>
-    <p>Experimente usar o menu para encontrar o que deseja</p>
+  <div class="w-100 h-100">
+    <div class="flex-col-center pt-24 px-8">
+      <h2>Seja lá o que você estava procurando, não tá aqui ainda</h2>
+      <p>Experimente usar o menu para encontrar o que deseja</p>
+    </div>
   </div>
 </BaseLayout>
 
@@ -15,6 +17,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   @include styles.generate-padding-top-class(24);
   @include styles.flex-col-center;
   @include styles.generate-padding-x-class(8);
+  @include styles.h-100();
+  @include styles.w-100();
   h2,
   p {
     color: styles.$white;

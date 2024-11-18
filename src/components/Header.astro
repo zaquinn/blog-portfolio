@@ -1,7 +1,6 @@
 ---
 import { IoMenu } from "react-icons/io5";
 import LanguageSelector from "./LanguageSelector/LanguageSelector";
-import Navigation from "./Navigation/Navigation.tsx";
 ---
 
 <header>
@@ -17,9 +16,6 @@ import Navigation from "./Navigation/Navigation.tsx";
     </div>
     <LanguageSelector client:load />
   </div>
-  <nav>
-    <Navigation client:only="react" />
-  </nav>
 </header>
 
 <style lang="scss">
@@ -71,15 +67,5 @@ import Navigation from "./Navigation/Navigation.tsx";
 </style>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    // @ts-expect-error: Object is possibly 'null'.
-    document
-      .querySelector(".navigation-menu-button")
-      .addEventListener("click", () => {
-        // @ts-expect-error: Object is possibly 'null'.
-        document
-          .querySelector(".navigation")
-          .classList.toggle("show-navigation-menu");
-      });
-  });
+  import "../scripts/menu.js";
 </script>

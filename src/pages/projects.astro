@@ -8,45 +8,47 @@ const teste2 = Array.from(new Array(2), (_, i) => i);
 ---
 
 <BaseLayout title="Isaac Xavier | Projetos">
-  <div class="flex-col-center pt-24 px-8">
-    <h2>Meus Projetos</h2>
-    <div class="flex-col w-100 pt-8">
-      <h3>Tags</h3>
-      <div class="tags-container pt-5">
-        {
-          teste.map((_) => (
-            <a class="tag">Python{typeof _ === "number" ? "" : _}</a>
-          ))
-        }
-      </div>
-      <div class="projects-container pt-24">
-        {
-          teste2.map((_) => (
-            <div class="project-container">
-              {typeof _ === "number" ? "" : _}
-              <h4 class="font-18 px-3 py-4">Ecommerce com microsserviços</h4>
-              <p class="font-16 font-w-300 px-3">
-                Demonstração da arquitetura de microsserviçosusando Python,
-                FastAPI e RabbitMQ. A aplicação inteira está dockerizada.
-              </p>
-              <p class="font-14 px-3 pt-8 pb-4">Repositório:</p>
-              <div class="px-3 py-4">
-                <p class="font-14">Tags:</p>
-                <a class="tag">Python</a>
+  <div>
+    <div class="flex-col-center pt-24 px-8">
+      <h2>Meus Projetos</h2>
+      <div class="flex-col w-100 pt-8">
+        <h3>Tags</h3>
+        <div class="tags-container pt-5">
+          {
+            teste.map((_) => (
+              <a class="tag">Python{typeof _ === "number" ? "" : _}</a>
+            ))
+          }
+        </div>
+        <div class="projects-container pt-24">
+          {
+            teste2.map((_) => (
+              <div class="project-container">
+                {typeof _ === "number" ? "" : _}
+                <h4 class="font-18 px-3 py-4">Ecommerce com microsserviços</h4>
+                <p class="font-16 font-w-300 px-3">
+                  Demonstração da arquitetura de microsserviçosusando Python,
+                  FastAPI e RabbitMQ. A aplicação inteira está dockerizada.
+                </p>
+                <p class="font-14 px-3 pt-8 pb-4">Repositório:</p>
+                <div class="px-3 py-4">
+                  <p class="font-14">Tags:</p>
+                  <a class="tag">Python</a>
+                </div>
               </div>
-            </div>
-          ))
-        }
-      </div>
-      <div class="flex-center pt-5 mb-4">
-        <div class="projects-paginator-container px-2">
-          <a><IoIosArrowBack /></a>
-          <a>1</a>
-          <a>2</a>
-          <a>3</a>
-          <a>...</a>
-          <a>9</a>
-          <a><IoIosArrowForward /></a>
+            ))
+          }
+        </div>
+        <div class="flex-center pt-5 mb-4">
+          <div class="projects-paginator-container px-2">
+            <a><IoIosArrowBack /></a>
+            <a>1</a>
+            <a>2</a>
+            <a>3</a>
+            <a>...</a>
+            <a>9</a>
+            <a><IoIosArrowForward /></a>
+          </div>
         </div>
       </div>
     </div>
